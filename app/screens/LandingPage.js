@@ -8,7 +8,7 @@ const IMAGE_HEIGHT = 400;
 
 const scaleFactor = width / 411.93;
 
-const LandingPage = () => {
+const LandingPage = ({navigation}) => {
     return (
         <View style={styles.landingPageContainer}>
             <StatusBar
@@ -24,7 +24,7 @@ const LandingPage = () => {
                 <Image source={require("../assets/images/landingImgNew.png")} style={styles.image} />
             </View>
             <View style={styles.btnContainer}>
-                <Button name="Get Started" icon="arrow-right"/>
+                <Button name="Get Started" icon="arrow-right" onPress={() => navigation.navigate('Login')}/>
             </View>
         </View>
     )
