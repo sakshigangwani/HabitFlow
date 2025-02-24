@@ -12,7 +12,7 @@ const LandingPage = () => {
     return (
         <View style={styles.landingPageContainer}>
             <StatusBar
-                barStyle="dark-content"
+                barStyle="light-content"
                 backgroundColor="#FFF8EA"
             />
             <View style={styles.landingPageHeading}>
