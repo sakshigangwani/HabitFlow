@@ -1,42 +1,52 @@
-import { StyleSheet, Text, Touchable, TouchableOpacity, View, Dimensions } from "react-native";
+import { StyleSheet, Text, Touchable, TouchableOpacity, View, Dimensions, StatusBar, SafeAreaView } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const { width, height } = Dimensions.get("window");
 
 const BUTTON_WIDTH = width * 0.5; // 70% of screen width
 const BUTTON_HEIGHT = height * 0.06; // 7% of screen height
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
     const pressHandler = () => {
         navigation.navigate("AddNewHabit");
     }
 
     return (
-        <View style={styles.homeContainer}>
-            <View style={styles.headerContainer}>
-                <Icon name="cog" size={30} color="#F4D9D0" style={styles.icon} />
-                <Text style={styles.header}>HabitFlow</Text>
-                <Icon name="plus-circle" size={30} color="#F4D9D0" style={styles.icon} onPress={pressHandler}/>
-            </View>
-            <View style={styles.body}>
-                <Icon name="plus-circle" size={35} color="#F4D9D0" style={styles.icon} onPress={pressHandler}/>
-                <Text style={styles.caption}>No habit found</Text>
-                <Text style={styles.caption}>Create a new habit to track your progress</Text>
-                <View style={styles.btnContainer}>
-                    <TouchableOpacity style={styles.btn}>
-                        <Text style={styles.btnName}>Get Started</Text>
-                        <Icon name="rocket" size={22} color="#921A40" style={styles.icon} />
-                    </TouchableOpacity>
+        <SafeAreaView style={styles.safeContainer}>
+            <View style={styles.homeContainer}>
+                <StatusBar
+                    backgroundColor="#921A40"
+                    barStyle="light-content"
+                />
+                <View style={styles.headerContainer}>
+                    <Icon name="cog" size={30} color="#F4D9D0" style={styles.icon} />
+                    <Text style={styles.header}>HabitFlow</Text>
+                    <Icon name="plus-circle" size={30} color="#F4D9D0" style={styles.icon} onPress={pressHandler} />
+                </View>
+                <View style={styles.body}>
+                    <Icon name="plus-circle" size={35} color="#F4D9D0" style={styles.icon} onPress={pressHandler} />
+                    <Text style={styles.caption}>No habit found</Text>
+                    <Text style={styles.caption}>Create a new habit to track your progress</Text>
+                    <View style={styles.btnContainer}>
+                        <TouchableOpacity style={styles.btn}>
+                            <Text style={styles.btnName}>Get Started</Text>
+                            <Icon name="rocket" size={22} color="#921A40" style={styles.icon} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
+
     )
 }
 
 export default Home;
 
 const styles = StyleSheet.create({
+    safeContainer: {
+        flex: 1,
+        backgroundColor: "#921A40",
+    },
     homeContainer: {
         flex: 1,
         justifyContent: "center",
@@ -50,7 +60,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "80%",
         position: "absolute",
-        top: 85,
+        top: 35,
         zIndex: 1, // ensures it stays on to
     },
     header: {

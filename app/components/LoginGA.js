@@ -24,11 +24,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         gap: 8,
-        backgroundColor: "#fff",
+        backgroundColor: "#F6E1E1",
         width: BUTTON_WIDTH, 
         height: BUTTON_HEIGHT, 
         borderRadius: 10,
-        marginTop: 10
+        marginTop: 10,
+        borderColor: "#7E6363",
+        borderWidth: 1
     },
     image: {
         width: BUTTON_HEIGHT * 0.45,

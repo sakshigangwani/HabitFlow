@@ -21,6 +21,9 @@ const IMAGE_WIDTH = 160;
 const IMAGE_HEIGHT = 200;
 const scaleFactor = width / 411.93;
 
+const BUTTON_WIDTH = width * 0.6
+const BUTTON_HEIGHT = width * 0.14
+
 const Login = ({navigation}) => {
     const [value, setValue] = useState('login');
 
@@ -35,7 +38,7 @@ const Login = ({navigation}) => {
             keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0} // adjust as needed
         >
             <ScrollView contentContainerStyle={styles.loginContainer}>
-                <StatusBar barStyle="dark-content" />
+                <StatusBar barStyle="dark-content" backgroundColor="#F4D9D0"/>
                 <View style={styles.headerContainer}>
                     <Image source={require("../assets/images/landingImgNew.png")} style={styles.image} />
                     <Text style={styles.header}>Welcome to HabitFlow!</Text>
@@ -68,7 +71,7 @@ const Login = ({navigation}) => {
                         </View>
                         <View style={styles.dividerContainer}>
                             <View style={styles.divider} />
-                            <Text>or continue with Email</Text>
+                            <Text style={styles.emailtxt}>or continue with Email</Text>
                             <View style={styles.divider} />
                         </View>
                         <View style={styles.loginDetailsContainer}>
@@ -112,7 +115,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F4D9D0",
         justifyContent: "center",
         alignItems: "center",
-        padding: 20
+        padding: 20,
     },
     image: {
         width: IMAGE_WIDTH * scaleFactor,
@@ -151,9 +154,12 @@ const styles = StyleSheet.create({
         gap: 6,
     },
     divider: {
-        backgroundColor: "#000",
+        backgroundColor: "#921A40",
         height: 1,
         width: 50
+    },
+    emailtxt: {
+        color: "#921A40"
     },
     loginBtnContainer: {
         marginTop: 10,
@@ -162,13 +168,14 @@ const styles = StyleSheet.create({
     },
     btn: {
         backgroundColor: "#921A40",
-        width: 260,
-        height: 57,
+        width: BUTTON_WIDTH,
+        height: BUTTON_HEIGHT,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 10,
         flexDirection: "row",
-        gap: 8
+        gap: 8,
+        marginTop: 4
     },
     btnName: {
         color: "#F4D9D0",

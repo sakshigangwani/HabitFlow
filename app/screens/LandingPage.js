@@ -3,8 +3,8 @@ import Button from "../components/Button";
 
 const { width, height } = Dimensions.get("window");
 
-const IMAGE_WIDTH = 350;
-const IMAGE_HEIGHT = 400;
+const IMAGE_WIDTH = 250;
+const IMAGE_HEIGHT = 300;
 
 const scaleFactor = width / 411.93;
 
@@ -13,7 +13,7 @@ const LandingPage = ({navigation}) => {
         <View style={styles.landingPageContainer}>
             <StatusBar
                 barStyle="light-content"
-                backgroundColor="#FFF8EA"
+                backgroundColor="#921A40"
             />
             <View style={styles.landingPageHeading}>
                 <Text style={styles.header}>HabitFlow</Text>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     header: {
-        fontSize: 48,
+        fontSize: 40,
         color: "#F4D9D0",
         fontWeight: "bold"
     },
