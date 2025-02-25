@@ -1,12 +1,16 @@
 import { StyleSheet, Text, Touchable, TouchableOpacity, View, Dimensions, StatusBar, SafeAreaView } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useHabit } from "../context/HabitContext";
+import Streak from "../components/Streak";
 
 const { width, height } = Dimensions.get("window");
 
-const BUTTON_WIDTH = width * 0.5; // 70% of screen width
-const BUTTON_HEIGHT = height * 0.06; // 7% of screen height
+const BUTTON_WIDTH = width * 0.5;
+const BUTTON_HEIGHT = height * 0.06;
 
 const Home = ({ navigation }) => {
+    const { savedHabit } = useHabit();
+
     const pressHandler = () => {
         navigation.navigate("AddNewHabit");
     }
@@ -23,17 +27,17 @@ const Home = ({ navigation }) => {
                     <Text style={styles.header}>HabitFlow</Text>
                     <Icon name="plus-circle" size={30} color="#F4D9D0" style={styles.icon} onPress={pressHandler} />
                 </View>
-                <View style={styles.body}>
+                {savedHabit.length > 0 ? <Streak /> : <View style={styles.body}>
                     <Icon name="plus-circle" size={35} color="#F4D9D0" style={styles.icon} onPress={pressHandler} />
                     <Text style={styles.caption}>No habit found</Text>
                     <Text style={styles.caption}>Create a new habit to track your progress</Text>
                     <View style={styles.btnContainer}>
-                        <TouchableOpacity style={styles.btn}>
-                            <Text style={styles.btnName}>Get Started</Text>
+                        <TouchableOpacity style={styles.btn} onPress={pressHandler}>
+                            <Text style={styles.btnName}>Create Habit</Text>
                             <Icon name="rocket" size={22} color="#921A40" style={styles.icon} />
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View>}
             </View>
         </SafeAreaView>
 

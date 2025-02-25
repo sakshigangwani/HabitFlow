@@ -1,7 +1,7 @@
 import { StyleSheet, Touchable, TouchableOpacity, View, Dimensions } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const { width, height } = Dimensions.get("window"); 
+const { width, height } = Dimensions.get("window");
 
 const BUTTON_WIDTH = width * 0.138; // 25% of screen width
 const BUTTON_HEIGHT = height * 0.044; // 5% of screen height
@@ -9,7 +9,7 @@ const BUTTON_HEIGHT = height * 0.044; // 5% of screen height
 const Icons = (props) => {
     return (
         <View>
-            <TouchableOpacity style={styles.icon}>
+            <TouchableOpacity style={[styles.icon, props.selected && styles.selectedIcon]} onPress={() => props.onPress(props.icon)}>
                 <Icon name={props.icon} size={20} color="#fff" />
             </TouchableOpacity>
         </View>
@@ -24,8 +24,12 @@ const styles = StyleSheet.create({
         width: BUTTON_WIDTH,
         height: BUTTON_HEIGHT,
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         borderRadius: 6,
         marginTop: 10
+    },
+    selectedIcon: {
+        borderColor: "#000",
+        borderWidth: 4
     }
 })

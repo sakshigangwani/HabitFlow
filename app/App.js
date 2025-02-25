@@ -8,19 +8,22 @@ import LandingPage from './screens/LandingPage';
 import Login from './screens/Login';
 import Home from './screens/Home';
 import AddNewHabit from './screens/AddNewHabit';
+import { HabitProvider } from './context/HabitContext';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Landing' component={LandingPage} options={{headerShown: false}}/>
-        <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
-        <Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
-        <Stack.Screen name='AddNewHabit' component={AddNewHabit} options={{headerShown: false}}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <HabitProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Landing' component={LandingPage} options={{ headerShown: false }} />
+          <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+          <Stack.Screen name='AddNewHabit' component={AddNewHabit} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </HabitProvider>
   );
 }
 
